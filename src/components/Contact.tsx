@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Toast from './Toast';
 import './Contact.css';
 
 interface ContactInfo {
@@ -13,6 +14,15 @@ const Contact: React.FC = () => {
   const contactRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const contactGridRef = useRef<HTMLDivElement>(null);
+  
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    projectType: 'Web Development',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const contactInfo: ContactInfo[] = [
     {
@@ -105,11 +115,33 @@ const Contact: React.FC = () => {
     return () => ctx.revert();
   }, []);
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setToast({
+        message: `Thank you ${formData.name}! Your message has been sent. I'll get back to you soon!`,
+        type: 'success'
+      });
+      setFormData({ name: '', email: '', projectType: 'Web Development', message: '' });
+      setIsSubmitting(false);
+    }, 1000);
+  };
+
   return (
     <section id="contact" ref={contactRef} className="contact section">
       <div className="container">
         <h2 ref={titleRef} className="section-title">
-          Contact <span>Info</span>
+          Get In <span className="highlight">Touch</span>
         </h2>
         <div ref={contactGridRef} className="contact-grid">
           {contactInfo.map((info, index) => (
@@ -129,20 +161,41 @@ const Contact: React.FC = () => {
         <div className="contact-form-section">
           <h3 className="form-title">Let's Work Together</h3>
           <p className="form-subtitle">Ready to bring your ideas to life? Let's discuss your next project!</p>
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
                 <label>Full Name</label>
-                <input type="text" placeholder="John Doe" className="form-input" />
+                <input 
+                  type="text" 
+                  name="name"
+                  placeholder="John Doe" 
+                  className="form-input" 
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div className="form-group">
                 <label>Email Address</label>
-                <input type="email" placeholder="john@example.com" className="form-input" />
+                <input 
+                  type="email" 
+                  name="email"
+                  placeholder="john@example.com" 
+                  className="form-input" 
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
             </div>
             <div className="form-group">
               <label>Project Type</label>
-              <select className="form-input">
+              <select 
+                className="form-input"
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleInputChange}
+              >
                 <option>Web Development</option>
                 <option>Mobile App</option>
                 <option>AI/ML Project</option>
@@ -152,15 +205,30 @@ const Contact: React.FC = () => {
             </div>
             <div className="form-group">
               <label>Project Details</label>
-              <textarea placeholder="Tell me about your project requirements..." className="form-textarea" rows={5}></textarea>
+              <textarea 
+                placeholder="Tell me about your project requirements..." 
+                className="form-textarea" 
+                name="message"
+                rows={5}
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+              ></textarea>
             </div>
-            <button type="submit" className="btn form-submit">
-              <span>Send Message</span>
+            <button type="submit" className="btn form-submit" disabled={isSubmitting}>
+              <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               <span className="btn-icon">→</span>
             </button>
           </form>
         </div>
       </div>
+      {toast && (
+        <Toast
+          message={toast.message}
+          type={toast.type}
+          onClose={() => setToast(null)}
+        />
+      )}
     </section>
   );
 };

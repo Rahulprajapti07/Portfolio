@@ -49,22 +49,26 @@ const Header: React.FC = () => {
         <div className="nav-bar">
           <div className="brand">
             <h1>
-              <span>R</span>ahul <span>P</span>rajapti
+              <span className="highlight">Rahul</span> Prajapti
             </h1>
           </div>
           <nav className={`nav-list ${isMenuOpen ? 'active' : ''}`}>
             <ul>
               <li><a href="#hero" onClick={() => scrollToSection('hero')}>Home</a></li>
+              <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
               <li><a href="#skills" onClick={() => scrollToSection('skills')}>Skills</a></li>
               <li><a href="#projects" onClick={() => scrollToSection('projects')}>Projects</a></li>
-              <li><a href="#about" onClick={() => scrollToSection('about')}>About</a></li>
               <li><a href="#contact" onClick={() => scrollToSection('contact')}>Contact</a></li>
             </ul>
           </nav>
-          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
-            {isDarkMode ? '☀️' : '🌙'}
-          </button>
+          <div className="nav-actions">
+            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
+          </div>
           <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
             <div className="bar"></div>
           </div>
         </div>

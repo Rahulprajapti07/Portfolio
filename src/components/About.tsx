@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import profilePlaceholder from '../assets/profile-placeholder.svg';
+import profilePhoto from '../assets/profile.jpg';
 import './About.css';
 
 const About: React.FC = () => {
@@ -85,13 +85,13 @@ const About: React.FC = () => {
     <section id="about" ref={aboutRef} className="about section">
       <div className="container">
         <h2 ref={titleRef} className="section-title">
-          About <span>Me</span>
+          About <span className="highlight">Me</span>
         </h2>
         <div className="about-content">
           <div ref={imageRef} className="about-image">
             <div className="image-container">
               <div className="profile-image">
-                <img src={profilePlaceholder} alt="Rahul Prajapti - Software Developer" />
+                <img src={profilePhoto} alt="Rahul Prajapti - Software Developer" />
               </div>
               <div className="image-border"></div>
             </div>

@@ -94,7 +94,7 @@ const Projects: React.FC = () => {
     <section id="projects" ref={projectsRef} className="projects section">
       <div className="container">
         <h2 ref={titleRef} className="section-title">
-          Recent <span>Projects</span>
+          Featured <span className="highlight">Projects</span>
         </h2>
         <div ref={projectsGridRef} className="projects-grid">
           {projects.map((project, index) => (
@@ -118,7 +118,14 @@ const Projects: React.FC = () => {
                   </ul>
                 </div>
                 <div className="project-actions">
-                  <button className="btn project-btn">View Details</button>
+                  <a href="#" className="project-btn">
+                    View Live Demo
+                    <span>→</span>
+                  </a>
+                  <a href="#" className="project-btn project-btn-secondary">
+                    Source Code
+                    <span>⚡</span>
+                  </a>
                 </div>
               </div>
               <div className="project-image">

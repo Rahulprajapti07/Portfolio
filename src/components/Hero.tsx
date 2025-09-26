@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import profilePlaceholder from '../assets/profile-placeholder.svg';
+import profilePhoto from '../assets/profile.jpg';
 import './Hero.css';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const ctaRef = useRef<HTMLDivElement>(null);
   const photoRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,50 +43,57 @@ const Hero: React.FC = () => {
       ease: 'power2.inOut'
     });
 
-    // Parallax effect on scroll
-    gsap.to(heroRef.current, {
-      yPercent: -50,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        scrub: true
-      }
-    });
+    // Simple fade in animation for hero section
+    gsap.fromTo(heroRef.current, 
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: 'power2.out' }
+    );
   }, []);
 
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <section id="hero" ref={heroRef} className="hero section">
-      <div className="hero-bg"></div>
       <div className="container">
         <div className="hero-content">
-          <div ref={photoRef} className="hero-photo">
-            <img src={profilePlaceholder} alt="Rahul Prajapti" />
+          <div className="hero-text">
+            <div ref={titleRef}>
+              <p className="hero-greeting">Hello, I'm</p>
+              <h1 className="hero-name">
+                <span className="highlight">Rahul</span> Prajapti
+              </h1>
+              <h2 className="hero-title">Full Stack Developer & AI Enthusiast</h2>
+            </div>
+            <div ref={subtitleRef}>
+              <p className="hero-description">
+                Passionate about creating innovative web solutions and AI applications. 
+                Specialized in Java, JavaScript, React, Python, and modern web technologies.
+              </p>
+            </div>
+            <div ref={ctaRef} className="hero-actions">
+              <a href="#projects" className="hero-cta" onClick={() => scrollToSection('projects')}>
+                View My Work
+              </a>
+              <a href="#contact" className="hero-cta-secondary" onClick={() => scrollToSection('contact')}>
+                Get In Touch
+              </a>
+            </div>
           </div>
-          <div ref={titleRef} className="hero-title">
-            <h1>Hello,</h1>
-            <h1>My Name is</h1>
-            <h1 className="name">Rahul Prajapti</h1>
+          <div className="hero-image">
+            <div ref={photoRef} className="hero-photo">
+              <img src={profilePhoto} alt="Rahul Prajapti - Full Stack Developer" />
+            </div>
+            <div className="floating-elements">
+              <div className="floating-icon">💻</div>
+              <div className="floating-icon">⚙️</div>
+              <div className="floating-icon">🚀</div>
+            </div>
           </div>
-          <div ref={subtitleRef} className="hero-subtitle">
-            <p>Full Stack Developer | Java | JavaScript | React | Python</p>
-          </div>
-          <a 
-            ref={ctaRef} 
-            href="#about" 
-            className="btn hero-cta"
-            onClick={scrollToAbout}
-          >
-            View Portfolio
-          </a>
         </div>
       </div>
     </section>

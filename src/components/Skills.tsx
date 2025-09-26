@@ -105,10 +105,11 @@ const Skills: React.FC = () => {
     <section id="skills" ref={skillsRef} className="skills section">
       <div className="container">
         <h2 ref={titleRef} className="section-title">
-          My <span>Skills</span>
+          My <span className="highlight">Skills</span>
         </h2>
         <p className="skills-description">
-          Full Stack Developer with expertise in Java, JavaScript, React, Python, and more.
+          Passionate about leveraging cutting-edge technologies to build scalable, 
+          user-centric applications that solve real-world problems.
         </p>
         <div ref={skillsGridRef} className="skills-grid">
           {skills.map((skill, index) => (
@@ -118,6 +119,9 @@ const Skills: React.FC = () => {
               <div className="skill-rating">
                 {renderStars(skill.level)}
               </div>
+              <p className="skill-level">
+                {skill.level === 5 ? 'Expert' : skill.level === 4 ? 'Advanced' : skill.level === 3 ? 'Intermediate' : 'Beginner'}
+              </p>
             </div>
           ))}
         </div>

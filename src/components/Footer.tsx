@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               className="social-link"
               title="LinkedIn Profile"
             >
-              💼
+              <span>💼</span>
             </a>
             <a 
               href="https://github.com/rahulprajapti" 
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
               className="social-link"
               title="GitHub Profile"
             >
-              💻
+              <span>💻</span>
             </a>
             <a 
               href="https://www.instagram.com/_rahul._prajapati/" 
@@ -62,18 +62,21 @@ const Footer: React.FC = () => {
               className="social-link"
               title="Instagram Profile"
             >
-              📷
+              <span>📷</span>
             </a>
             <a 
               href="mailto:prajaptirahul514@gmail.com" 
               className="social-link"
               title="Send Email"
             >
-              ✉️
+              <span>✉️</span>
             </a>
           </div>
+          <div className="footer-divider"></div>
           <div className="footer-text">
-            <p>Crafted with ❤️ by <strong>Rahul Prajapti</strong></p>
+            <p>Designed & Built with ❤️ by <strong>Rahul Prajapti</strong></p>
+          </div>
+          <div className="footer-bottom">
             <p>&copy; 2024 All rights reserved. Built with React & TypeScript</p>
           </div>
         </div>
