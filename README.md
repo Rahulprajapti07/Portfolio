@@ -1,46 +1,114 @@
-# Getting Started with Create React App
+# My Portfolio - React + GSAP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website built with React, TypeScript, and GSAP animations.
+
+## Features
+
+- 🚀 Modern React with TypeScript
+- ✨ Smooth GSAP animations and scroll triggers
+- 📱 Fully responsive design
+- 🎨 Beautiful gradient backgrounds and hover effects
+- 🔗 Smooth scrolling navigation
+- 📧 Contact form
+- 🌟 Interactive skill ratings
+- 💼 Project showcase
+
+## Technologies Used
+
+- React 19
+- TypeScript
+- GSAP (GreenSock Animation Platform)
+- CSS3 with modern features
+- React Router DOM
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Navigate to the project directory:
+   ```bash
+   cd my-portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` - Runs the app in development mode
+- `npm run build` - Builds the app for production
+- `npm test` - Launches the test runner
+- `npm run eject` - Ejects from Create React App (one-way operation)
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+src/
+├── components/
+│   ├── Header.tsx/css     # Navigation header
+│   ├── Hero.tsx/css       # Hero section with animated text
+│   ├── Skills.tsx/css     # Skills showcase with ratings
+│   ├── Projects.tsx/css   # Project portfolio
+│   ├── About.tsx/css      # About me section
+│   ├── Contact.tsx/css    # Contact information and form
+│   └── Footer.tsx/css     # Footer with social links
+├── App.tsx                # Main app component
+├── App.css               # Global styles
+└── index.tsx             # App entry point
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Animations
 
-### `npm test`
+The portfolio features smooth GSAP animations including:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Page load animations
+- Scroll-triggered animations
+- Hover effects
+- Parallax scrolling
+- Staggered element animations
+- Floating animations
 
-### `npm run build`
+## Customization
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To customize the portfolio for your own use:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Update personal information in the components
+2. Replace project details in `Projects.tsx`
+3. Update contact information in `Contact.tsx`
+4. Modify social links in `Footer.tsx`
+5. Adjust colors and styling in the CSS files
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Deployment
 
-### `npm run eject`
+To deploy the portfolio:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Build the project:
+   ```bash
+   npm run build
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Deploy the `build` folder to your hosting service
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## License
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This project is open source and available under the [MIT License](LICENSE).
 
-## Learn More
+## Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Rahul Prajapti - prajaptirahul514@gmail.com
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project Link: [https://github.com/yourusername/my-portfolio](https://github.com/yourusername/my-portfolio)
