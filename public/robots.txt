@@ -1,3 +1,6 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /private/
+
+Sitemap: https://portfolio-nu-cyan-91.vercel.app/sitemap.xml
